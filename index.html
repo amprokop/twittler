@@ -17,7 +17,6 @@
       <h1>
       </h1>
         <div class="wrapper">
-            <div>Twitter Clone</div>
             <button class="refresh">Click to refresh the tweets!</button>
       </div>
    </header>
@@ -26,8 +25,8 @@
     <script>
 
       $(document).ready(function(){
-        $("h1").text("Twittler..............................................................a home for the weary");
-        var $tweets = $('.tweets');
+        $("h1").text("Twittler.........................................................................................huh?");
+        var $content = $('.tweets');
         var index = streams.home.length - 1;
 
          while(index >= 0){
@@ -35,21 +34,25 @@
           //only one tweet is retained at a time
           //why is the div /div there? to erase the jquery variable? to ensure that each is on its own line?
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-          $tweet.appendTo($tweets);
+          var $tweet = $('<div><br></div>');
+          $tweet.html('@' + tweet.user + ': ' + tweet.message + '</br' + tweet.created_at);
+          $tweet.appendTo($content);
           index -= 1;
           }
+
+        $('header').on('hover', function(){
+          $(this).css('border-color', '1px solid #967');
+        });
 
 
 // <script>setTimeout(function(){window.location.href='form2.html'},5000);<script>
 
-        $('button').on('click', function(){
-          var index = streams.home.length - 1;
-          $tweet.appendTo($body);
+        $('.button').on('click', function(){
+          alert('you clicked?')
+
        });
 
-        $tweet.user.on('click', function(){
+        $(".tweets").on('click', function(){
           alert('thisword');
         });
 

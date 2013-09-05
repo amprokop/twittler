@@ -2,10 +2,11 @@ body {
 
         font-family: Georgia, Arial, sans-serif;
         color: gray;
+        background-image:url('/Users/gobbledygook/2013-09-twittler/img/019-Subtle-light-patterns-Vol04.png');
     }
 
 * {
-  background-image:url('/img/two.png');
+
 
 }
 
@@ -17,6 +18,9 @@ header {
    background-color: gray;
    color: white;
    border-radius: 4px; 20px;
+   text-shadow:#4f6478 0px 5px 50px; 
+   border-bottom:1px solid rgba(136,136,136,0.75);
+   position:relative;
 
 }
 
@@ -35,7 +39,7 @@ h1{
 }
 
 .tweets {
-    margin: 100px 100px 0 90px;
+    margin: 38px 100px 0 90px;
     padding-top: 20px;
     text-align: justify;
     line-height: 1.5;
