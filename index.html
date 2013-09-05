@@ -4,39 +4,64 @@
   
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <title> "WARBLR" </title>
+    <link rel="stylesheet" type="text/css" href="twittler.css">
+
   <nav>
   </nav>
   </head>
 
   <body>
+     <header>
+      <h1>
+      </h1>
+        <div class="wrapper">
+            <img src="http://pbdmedia.com/weblog/wp-content/uploads/2011/11/Zoo_2009Jan24_0078_web.jpg">
+            <div>Twitter Clone</div>
+            <button>Click for more!</button>
+      </div>
+   </header>
     <script>
 
       $(document).ready(function(){
+        $("h1").text("Twittler!!!!");
         var $body = $('body');
-        $body.html('WARBLR <button>See the latest warbles!</button>');
+
         var index = streams.home.length - 1;
 
-
-        while(index >= 0){
+         while(index >= 0){
+          //each time we go through the loop, we're setting tweet equal to the next tweet in the index
+          //only one tweet is retained at a time
+          //why is the div /div there? to erase the jquery variable? to
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + '\n Timestamp:' + tweet.created_at);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + 'Timestamp:' + tweet.created_at);
           $tweet.appendTo($body);
+          $body
           index -= 1;
-          }; 
-
+          }
 
         $('button').on('click', function(){
-          index = streams.home.length -1
-          alert(thisworked)
+          $(alert('thisworked'));
+          $(alert(tweet))
+          var index = streams.home.length - 1;
+          var usernames = streams.users;
+          var $usernames = $('<div></div>')
+          $usernames.text('The users are: @' + streams.users)
+       });
+
+        $tweet.user.on('click', function(){
+          alert('thisword');
         });
 
-        ('user').click(function(){
-  // action goes here!!
+        $tweet.on('click', function(){
+          alert('oh');
+
+        });
+
+
+
 });
 
-      });
 
     </script>
   </body>
