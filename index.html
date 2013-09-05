@@ -17,7 +17,7 @@
       <h1>
       </h1>
         <div class="wrapper">
-            <button class="refresh">Click to refresh the tweets!</button>
+            <button class="refresh">Click to see more tweets!</button>
       </div>
    </header>
         <article class="tweets">
@@ -28,6 +28,7 @@
         $("h1").text("Twittler.........................................................................................huh?");
         var $content = $('.tweets');
         var index = streams.home.length - 1;
+        var thisrefreshIndex = index;
 
          while(index >= 0){
           //each time we go through the loop, we're setting tweet equal to the next tweet in the index
@@ -44,12 +45,18 @@
         });
 
         $('.refresh').on('click', function(){
-          $content.remove(tweet);
+          var i = 11;
+          while (i <= streams.home.length - 1){
+          var newTweet = streams.home[i]
+          var $newTweet = $('<div></div>')
+          $newTweet.html(' @' + '<span class="user">' + newTweet.user + '</span>: ' + newTweet.message + '</br>' + newTweet.created_at);
+          $newTweet.prependTo($content);
+          i += 1;
+        }
        });
 
         $(".user").on('click', function(){
           alert(streams.home.length)
-          alert(user)
         });
 
         $tweet.on('click', function(){
