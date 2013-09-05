@@ -4,7 +4,9 @@
   
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <link rel="stylesheet" type="text/css" href="twittler.css">
+    <link rel="stylesheet" href="twittler.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+
 
   <nav>
   </nav>
@@ -15,38 +17,36 @@
       <h1>
       </h1>
         <div class="wrapper">
-            <img src="http://pbdmedia.com/weblog/wp-content/uploads/2011/11/Zoo_2009Jan24_0078_web.jpg">
             <div>Twitter Clone</div>
-            <button>Click for more!</button>
+            <button class="refresh">Click for more!</button>
       </div>
    </header>
+        <article class="tweets">
+      </article>
     <script>
 
       $(document).ready(function(){
         $("h1").text("Twittler!!!!");
-        var $body = $('body');
-
+        var $tweets = $('.tweets');
         var index = streams.home.length - 1;
 
          while(index >= 0){
           //each time we go through the loop, we're setting tweet equal to the next tweet in the index
           //only one tweet is retained at a time
-          //why is the div /div there? to erase the jquery variable? to
+          //why is the div /div there? to erase the jquery variable? to ensure that each is on its own line?
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + 'Timestamp:' + tweet.created_at);
-          $tweet.appendTo($body);
-          $body
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
+          $tweet.appendTo($tweets);
           index -= 1;
           }
 
+
+// <script>setTimeout(function(){window.location.href='form2.html'},5000);<script>
+
         $('button').on('click', function(){
-          $(alert('thisworked'));
-          $(alert(tweet))
           var index = streams.home.length - 1;
-          var usernames = streams.users;
-          var $usernames = $('<div></div>')
-          $usernames.text('The users are: @' + streams.users)
+          $tweet.appendTo($body);
        });
 
         $tweet.user.on('click', function(){
