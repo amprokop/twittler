@@ -24,6 +24,12 @@ header {
 
 }
 
+.user {
+  color:pink
+}
+
+hover
+
 h1{
   text-align: left
   webkit-text-shadow: 2px 3px 30px #000;
@@ -39,33 +45,28 @@ h1{
 }
 
 .tweets {
-    margin: 38px 100px 0 90px;
+    margin: 47px 200px 80px 90px;
     padding-top: 20px;
-    text-align: justify;
-    line-height: 1.5;
-    .antialiased(@text-color);
+    padding-left: 50px;
+    text-align: justify-left;
+    line-height: 2.0;
     border-left: 1px solid @border-color;
-    color:  gray
+    color:  black
+    webkit-text-shadow: 2px 8px 10px #fff;
+    opacity: 1.6;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: white;
 
-}
 }
 
 
 .refresh {
     font-family: white bold Tahoma;
-    color: @fff;
+    color: blue;
 }
 
 
-    .gradient4f (@p1, @c1, @p2, @c2, @p3, @c3, @p4, @c4) {
-    background: @c1;
-    background: -moz-linear-gradient(top,  @c1 @p1,  @c2 @p2,  @c3 @p3,  @c4 @p4);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(@p1, @c1), color-stop(@p2, @c2), color-stop(@p3, @c3), color-stop(@p4, @c4));
-    background: -webkit-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
-    background: -o-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
-    background: -ms-linear-gradient(top, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
-    background: linear-gradient(to bottom, @c1 @p1, @c2 @p2, @c3 @p3, @c4 @p4);
-}
 
 
 

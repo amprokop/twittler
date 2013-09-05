@@ -34,26 +34,22 @@
           //only one tweet is retained at a time
           //why is the div /div there? to erase the jquery variable? to ensure that each is on its own line?
           var tweet = streams.home[index];
-          var $tweet = $('<div><br></div>');
-          $tweet.html('@' + tweet.user + ': ' + tweet.message + '</br' + tweet.created_at);
+          var $tweet = $('<div></div>');
+          $tweet.html(' @' + '<span class="user">' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
           $tweet.appendTo($content);
           index -= 1;
           }
 
-        $('header').on('hover', function(){
-          $(this).css('border-color', '1px solid #967');
+        $('header').on('hover', function(){;
         });
 
-
-// <script>setTimeout(function(){window.location.href='form2.html'},5000);<script>
-
-        $('.button').on('click', function(){
-          alert('you clicked?')
-
+        $('.refresh').on('click', function(){
+          $content.remove(tweet);
        });
 
-        $(".tweets").on('click', function(){
-          alert('thisword');
+        $(".user").on('click', function(){
+          alert(streams.home.length)
+          alert(user)
         });
 
         $tweet.on('click', function(){
