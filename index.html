@@ -25,43 +25,57 @@
     <script>
 
       $(document).ready(function(){
-        $("h1").text("Twittler.........................................................................................huh?");
+
+        $("h1").text("Twittler.................................................................twiddle me this?");
+
         var $content = $('.tweets');
         var index = streams.home.length - 1;
-        var thisrefreshIndex = index;
 
-         while(index >= 0){
-          //each time we go through the loop, we're setting tweet equal to the next tweet in the index
-          //only one tweet is retained at a time
-          //why is the div /div there? to erase the jquery variable? to ensure that each is on its own line?
+        while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.html(' @' + '<span class="user">' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
+
+          $tweet.html(' @' + '<span class="user" data-username='+tweet.user+'>' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
           $tweet.appendTo($content);
           index -= 1;
-          }
+        }
 
         $('header').on('hover', function(){;
-        });
+
+          });
 
         $('.refresh').on('click', function(){
           var i = 11;
-          while (i <= streams.home.length - 1){
-          var newTweet = streams.home[i]
-          var $newTweet = $('<div></div>')
-          $newTweet.html(' @' + '<span class="user">' + newTweet.user + '</span>: ' + newTweet.message + '</br>' + newTweet.created_at);
-          $newTweet.prependTo($content);
-          i += 1;
-        }
+          
+          while (i < streams.home.length){
+            var tweet = streams.home[i]
+            var $tweet = $('<div></div>')
+            $tweet.html(' @' + '<span class="user" data-username='+tweet.user+'>' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
+            $tweet.prependTo($content);
+            i += 1;
+          }
+
        });
 
         $(".user").on('click', function(){
-          alert(streams.home.length)
+
+          var username = $(this).data('username');
+          // $("div").remove(".history");
+          $(".history").toggle();
+
+          var i = (streams.users.shawndrost.length - 1)
+
+         while (i >= 0) {
+            var tweet = (streams.users.shawndrost[i]);
+            var $tweet = $('<div class ="history"></div>');
+            $tweet.html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp' + tweet.message + '<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp' + tweet.created_at)
+            $(this).closest("div").append($tweet);
+            i = i - 1
+          }
+                      // $('span[data-="B456"]').appendTo.($this)
         });
 
         $tweet.on('click', function(){
-          alert('oh');
-
         });
 
 
