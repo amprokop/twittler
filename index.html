@@ -50,7 +50,7 @@
           while (i < streams.home.length){
             var tweet = streams.home[i]
             var $tweet = $('<div></div>')
-            $tweet.html(' @' + '<span class="user" data-username='+tweet.user+'>' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
+            $tweet.html(' @' + '<span class="user" data-username=' + tweet.user + '>' + tweet.user + '</span>: ' + tweet.message + '</br>' + tweet.created_at);
             $tweet.prependTo($content);
             i += 1;
           }
@@ -59,14 +59,13 @@
 
         $(".user").on('click', function(){
 
-          var username = $(this).data('username');
-          $("div").remove(".history");
-          // $(".history").toggle();
+          $("div").remove(".history"); 
 
-          var i = (streams.users.shawndrost.length - 1)
+          var username = $(this).data('username');       
+          var i = (streams.users[username].length - 1)
 
          while (i >= 0) {
-            var tweet = (streams.users.shawndrost[i]);
+            var tweet = (streams.users[username][i]);
             var $tweet = $('<div class ="history"></div>');
             $tweet.html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp' + tweet.message + '<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp' + tweet.created_at)
             $(this).closest("div").append($tweet);
